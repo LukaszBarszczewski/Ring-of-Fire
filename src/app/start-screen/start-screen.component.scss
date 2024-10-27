@@ -1,0 +1,82 @@
+@import '../../styles';
+
+
+
+
+
+button {
+    position: relative; /* Ermöglicht absolute Positionierung der Kind-Elemente */
+    background-color: transparent;
+    border: none;
+    padding: 0; /* Entfernt zusätzliche Abstände des Buttons */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        display: block;
+        width: 140px;
+        height: 200px;
+        transition: transform 0.3s ease;
+    }
+
+    span {
+        position: absolute;
+        color: white;
+        font-size: 32px;
+        font-weight: bold;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Zentriert das Wort „PLAY“ */
+        pointer-events: none; /* Verhindert, dass das „PLAY“-Text-Klicken den Button beeinflusst */
+        transition: transform 0.3s ease;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        img {
+            transform: scale(1.1) rotate(25deg);
+        }
+
+        span {
+            transform: translate(-65%, -50%) scale(1.2) rotate(25deg); /* Vergrößert den Text leicht beim Hover */
+            color: rgb(212, 144, 18);
+        }
+    }
+}
+
+.start-screen {
+    @include displayFlexColumn();
+    background-color: #575656;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+
+    > h1 {
+        font-size: 160px;
+        margin: 0;
+        
+        &:first-of-type {
+            /* Rotation für das erste h1-Element ("RING") */
+            transform: rotate(-15deg);
+        }
+
+        &:last-of-type {
+            /* Rotation für das letzte h1-Element ("FIRE") */
+            transform: rotate(15deg);
+        }
+    }
+}   
+
+.start-screen-middle {
+    display: flex;
+    align-items: center;
+    margin: 80px 0;
+
+        >h1 {
+            font-size: 180px;
+            margin: 0;
+        }
+}
+
