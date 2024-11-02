@@ -64,11 +64,17 @@ export class GameComponent implements OnInit {
   
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogAddPlayerComponent);
+    
+    if (this.game!.players.length <= 5) {
+      const dialogRef = this.dialog.open(DialogAddPlayerComponent);
+      dialogRef.afterClosed().subscribe((name: string) => {
+        this.game?.players.push(name);
+      });
+    } else {
+      alert('Max. 6 players');
+    }
 
-    dialogRef.afterClosed().subscribe((name: string) => {
-      this.game?.players.push(name);
-    });
+    
   }
 
 
