@@ -19,7 +19,7 @@ import { MatIcon } from '@angular/material/icon';
     GameComponent,
     MatDialogModule,
     MatFormFieldModule,
-    FormsModule, // Import für ngModel hinzufügen 
+    FormsModule,
     MatInputModule,
     MatIcon
   ],
@@ -37,7 +37,7 @@ export class DialogAddPlayerComponent {
     if (this.name.length <= 14) {
       this.dialogRef.close(this.name); // Schließt den Dialog und gibt den Namen zurück
     } else {
-      alert('Max. 14 signs');
+      alert('Max. 14 characters');
     }
 
   }
