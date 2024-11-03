@@ -38,7 +38,7 @@ export class DialogAddPlayerComponent {
       this.dialogRef.close(this.name); // Schließt den Dialog und gibt den Namen zurück
     } else {
       alert('Max. 14 characters');
+      return;      
     }
-
   }
 }
