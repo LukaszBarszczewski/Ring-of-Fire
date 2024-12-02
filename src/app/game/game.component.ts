@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Game } from '../../models/game';
 import { PlayerComponent } from "../player/player.component";
 import { MatDialog } from '@angular/material/dialog';
@@ -7,6 +7,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 import { CardChallengeComponent } from "../card-challenge/card-challenge.component";
+import { Firestore } from "@angular/fire/firestore";
+import { collection } from 'firebase/firestore';
 
 
 @Component({
@@ -28,8 +30,11 @@ export class GameComponent implements OnInit {
   game: Game | undefined;
   pickCardAnimation = false;
   currentCard: string = '';
-  
+  firestore: Firestore = inject(Firestore);
+
   constructor(public dialog: MatDialog) {
+    let hurensohn = collection(this.firestore, 'test');
+    console.log(hurensohn);
     
   }
   
