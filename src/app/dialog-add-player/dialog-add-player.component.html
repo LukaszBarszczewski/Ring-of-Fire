@@ -1,0 +1,13 @@
+<ol>
+  <h1>Add new player</h1>
+  <li>
+    <mat-form-field>
+      <mat-label>What's your name?</mat-label>
+      <input matInput [(ngModel)]="name" />
+    </mat-form-field>
+  </li>
+  <li>
+    <button [disabled]="name.length == 0" (click)="addPlayer()">Ok</button>
+  </li>
+
+</ol>

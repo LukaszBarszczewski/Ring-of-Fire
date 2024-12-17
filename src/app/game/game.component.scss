@@ -1,0 +1,142 @@
+@import '../../styles';
+
+
+.board {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    background-image: url(../../assets/img/table.jpg);
+    @include displayFlexCenter();
+}
+
+.card-stack {
+    position: relative;
+
+    img {
+        width: 120px;
+        position: absolute;
+    }
+}
+
+.top-card {
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+
+    &:hover {
+        transform: scale(1.08);
+        border: 1px solid white;
+        border-radius: 8px;
+    }
+}
+
+.played-card {
+    transform: scale(1) translateY(-280px) rotate(-10deg);
+}
+
+.pick-card {
+    animation: pick-card-animation 1s ease-in-out;
+    transform: scale(1) translateX(140px) translateY(-280px) rotate(-10deg);
+}
+
+@keyframes pick-card-animation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.7);
+    }
+
+    70% {
+        transform: scale(1.7);
+    }
+
+    100% {
+        transform: scale(1) translateX(140px) translateY(-280px) rotate(-10deg);
+    }
+}
+
+.player-position {
+    z-index: 1;
+    opacity: 0.85;
+}
+
+.btn-add {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+}
+
+.pin-bottom {
+    position: absolute;
+    bottom: 32px;
+    left: 100px;
+    right: 100px;
+}
+
+.scroll-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 8px;
+}
+
+@media (max-width: 800px) {
+    .pin-bottom {
+        height: 140px;
+        width: 100vw;
+        bottom: 0;
+        left: 0;
+    }
+
+    .hide-mobile {
+        display: none;
+    }
+
+    .player-position {
+        left: 0;
+    }
+
+    .card-stack {
+        img {
+            width: 100px;
+        }
+    }
+
+    .played-card {
+        transform: scale(1) translateY(-180px) rotate(-10deg);
+    }
+
+    .pick-card {
+        animation: pick-card-animation-mobile 1s ease-in-out;
+        transform: scale(1) translateX(120px) translateY(-180px) rotate(-10deg);
+    }
+
+    @keyframes pick-card-animation-mobile {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.7);
+        }
+
+        70% {
+            transform: scale(1.7);
+        }
+
+        100% {
+            transform: scale(1) translateX(120px) translateY(-180px) rotate(-10deg);
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    .hide-desktop {
+        display: none;
+    }
+}

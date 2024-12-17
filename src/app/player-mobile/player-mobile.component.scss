@@ -1,0 +1,28 @@
+@import '../../styles';
+
+
+.player {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    width: 60px;
+    background-color: #575656;
+    padding: 16px;
+    height: 90px;
+
+    span {
+        font-size: 12px;
+    }
+
+    img {
+        width: 20px;
+        height: 35;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+}
+
+.player-active {
+    background-color: #ffd740 !important;
+}
