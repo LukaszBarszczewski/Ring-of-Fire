@@ -88,8 +88,8 @@ export class GameComponent implements OnInit, OnDestroy {
     dialogRef.afterClosed().subscribe((name: string) => {
       if (name && name.length > 0) {
         this.game.players.push(name);
-        this.updateGame();
       }
+      this.updateGame();
     });
   }
 

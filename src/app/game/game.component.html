@@ -1,11 +1,18 @@
 @for (player of game.players; track $index) {
-<app-player class="player-position hide-mobile" [activePlayer]="$index == game.currentPlayer" [name]="player"
-    [ngStyle]="{'top': 100 + ($index * 105) + 'px'}"></app-player>
-}
+    <app-player class="player-position hide-mobile" 
+        [activePlayer]="$index == game.currentPlayer" 
+        [name]="player"
+        [ngStyle]="{
+          'position': 'absolute', 
+          'top': 100 + ($index * 110) + 'px', 
+          'right': '0'
+        }">
+    </app-player>
+  }
 
-<div class="scroll-container">
+<div class="scroll-container hide-desktop">
     @for (player of game.players; track $index) {
-    <app-player-mobile class="player-position hide-desktop" [activePlayer]="$index == game.currentPlayer"
+    <app-player-mobile class="player-position" [activePlayer]="$index == game.currentPlayer"
         [name]="player"></app-player-mobile>
     }
 </div>
